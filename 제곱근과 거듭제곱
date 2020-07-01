@@ -1,0 +1,47 @@
+import math
+import random
+
+def ml_math_1() :
+    while (True) :
+        # 제곱근 계산기
+        try :
+            x = int(input("원하는 수 : "))
+            print( "당신이 입력한 수의 제곱근은", math.sqrt(x), "입니다." )
+        except Exception :
+            print("종료합니다.")
+            break
+
+def ml_math_2() :
+    while (True) :
+        # 거듭제곱 계산하기
+        a1 = random.randint(2, 10)
+        a2 = random.randint(2, 5)
+
+        b1 = random.randint(2, 10)
+        b2 = random.randint(2, 5)
+
+        print()
+        print("문제 :", a1, "의", a2, "거듭제곱 X", b1, "의", b2, "거듭제곱 계산된 값은?")
+        try:
+            z = int(input("답은? (알면 입력하시고(X), 모르면 패스(2)) : "))
+            if z == 2 : # 모르겠다면?
+                print("정답은", math.pow(a1, a2) * math.pow(b1, b2), "였습니다.")
+                pass
+            elif z == int(math.pow(a1, a2) * math.pow(b1, b2)) : # 정답을 맞췄다면?
+                print(int(math.pow(a1, a2) * math.pow(b1, b2)), "정답입니다.")
+                pass
+            else : # 정답을 입력했으나 틀렸다면?
+                print(int(math.pow(a1, a2) * math.pow(b1, b2)), "틀렸습니다..")
+                
+        except Exception : # 아무 의미도 없는 입력이 있었다면?
+            print("정답은", math.pow(a1, a2) * math.pow(b1, b2), "였습니다.")
+            break
+
+
+if __name__ == "__main__":
+    ch = int(input("제곱근 프로그래밍 (1) / 거듭제곱 프로그래밍 (2) : "))
+
+    if ch == 1 :
+        ml_math_1()
+    elif ch == 2 :
+        ml_math_2()
